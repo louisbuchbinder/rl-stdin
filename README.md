@@ -11,7 +11,10 @@ npm install --save rl-stdin
 
 
 # Use as inline command like
-node -p 'require(\'rl-stdin\').then((data) => {/*Do Something Fancy*/});'
+node -p "require('rl-stdin').then((data) => {/*Do Something Fancy*/});" < myFile.json
+
+#OR
+echo {\"username\":\"louisbuchbinder\",\"password\":\"kittylitter\"} | node -p "require('rl-stdin').then((data) => {/*Do Something Fancy*/});"
 
 # Use inside node script
 var stdin = require('rl-stdin');
