@@ -3,6 +3,13 @@
 ***A simple module to read stdin data and resolve the result in a promise***
 
 ```
+sudo npm install -g rl-stdin
+
+# OR
+
+npm install --save rl-stdin
+
+
 # Use as inline command like
 node -p 'require(\'rl-stdin\').then((data) => {/*Do Something Fancy*/});'
 
