@@ -1,4 +1,4 @@
-#Readline Standard In (rl-stdin)#
+#Readline Standard In (rl-stdin)
 
 ***A simple module to read stdin data and resolve the result in a promise***
 

@@ -19,8 +19,7 @@ const execute = (script) => new Promise((resolve, reject) => {
     if (error) reject(error);
     else resolve(stdout);
   });
-})
-.then((data) => data.slice(22).slice(0, -1)); // Clean Leading 'Promise { <pending> }\n' AND Clean trailing '\n'
+});
 
 // Create test file queue and testing variables
 var testFiles = ['./spec/test.txt', './spec/test.html', './spec/test.json', './spec/blank.txt'];
@@ -39,25 +38,25 @@ describe('rl-stdin tests', () => {
 
   it('should read a text input', () => {
     return expect(
-      execute('node -p "require(\'./index.js\').then((data) => console.log(data));" < ' + file)
+      execute('node -e "require(\'./index.js\').then((data) => process.stdout.write(data));" < ' + file)
     ).to.eventually.equal(data);
   });
 
   it('should read an html input', () => {
     return expect(
-      execute('node -p "require(\'./index.js\').then((data) => console.log(data));" < ' + file)
+      execute('node -e "require(\'./index.js\').then((data) => process.stdout.write(data));" < ' + file)
     ).to.eventually.equal(data);
   });
 
   it('should read a JSON input', function() {
     return expect(
-      execute('node -p "require(\'./index.js\').then((data) => console.log(data));" < ' + file)
+      execute('node -e "require(\'./index.js\').then((data) => process.stdout.write(data));" < ' + file)
     ).to.eventually.equal(data);
   });
 
   it('should read a blank input', function() {
     return expect(
-      execute('node -p "require(\'./index.js\').then((data) => console.log(data));" < ' + file)
+      execute('node -e "require(\'./index.js\').then((data) => process.stdout.write(data));" < ' + file)
     ).to.eventually.equal(data);
   });
 });
