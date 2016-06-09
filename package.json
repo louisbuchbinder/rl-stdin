@@ -1,6 +1,6 @@
 {
   "name": "rl-stdin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Read STDIN data and resolve results in a promise",
   "main": "index.js",
   "scripts": {

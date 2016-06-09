@@ -1,7 +1,7 @@
 module.exports = (() => new Promise((resolve) => {
-  var data = '';
+  var data = [];
   require('readline')
   .createInterface({input: process.stdin})
-  .on('line', (line) => data += line + '\n')
-  .on('close', () => resolve(data));
+  .on('line', (line) => data.push(line))
+  .on('close', () => data.length > 0 ? resolve(data.join('\n') + '\n') : resolve(''));
 }))();
